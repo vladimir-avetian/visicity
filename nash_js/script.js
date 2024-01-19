@@ -1,12 +1,12 @@
 $(document).ready(function() {
     // Initialize the Leaflet map
     var map = L.map('map', {
-    zoomControl: false, // Disable the zoom control buttons
-    scrollWheelZoom: false, // Disable zooming with the mouse scroll wheel
-    doubleClickZoom: false, // Disable zooming with double-click
-    touchZoom: false, // Disable zooming with touch gestures
-    boxZoom: false, // Disable zooming with box selection
-    keyboard: false, // Disable zooming with keyboard (+ and - keys)
+    // zoomControl: false, // Disable the zoom control buttons
+    // scrollWheelZoom: false, // Disable zooming with the mouse scroll wheel
+    // doubleClickZoom: false, // Disable zooming with double-click
+    // touchZoom: false, // Disable zooming with touch gestures
+    // boxZoom: false, // Disable zooming with box selection
+    // keyboard: false, // Disable zooming with keyboard (+ and - keys)
     dragging: false // Disable dragging to pan
     }).setView([48.858, 2.345], 12); // Set the initial view
 
