@@ -15,7 +15,9 @@ $(document).ready(function() {
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
         attribution: '© OpenStreetMap contributors, © CARTO'
     }).addTo(map);
-
+    //L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+    //attribution: '© OpenStreetMap contributors, © CARTO'
+    //}).addTo(map);
 
     var imageUrl = 'img/paris2leaf.avif'; // URL to your georeferenced image
     var imageBounds = [[48.816277, 2.225594], [48.902098, 2.468296]]; // Bounds of the image in [lat, lng] format
@@ -30,7 +32,7 @@ $(document).ready(function() {
         var currentZoomLevel = map.getZoom();
 
         // Check if the zoom level changed from 13 to 12
-        if (previousZoomLevel === 14 && currentZoomLevel <= 13) {
+        if (previousZoomLevel === 13 && currentZoomLevel <= 12) {
             // Trigger your specific actions here
             console.log("Zoom level changed from 13 to 12");
 
