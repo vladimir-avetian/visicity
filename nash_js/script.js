@@ -228,7 +228,7 @@ $(document).ready(function() {
     function AirbnbFunction() {
         if (map.hasLayer(rasterLayer)) {
             map.removeLayer(rasterLayer);
-            //var rasterLayer = L.imageOverlay(imageUrlAirbnb, imageBounds).addTo(map);
+            var rasterLayer = L.imageOverlay(imageUrlAirbnb, imageBounds).addTo(map);
         }
     }
 
