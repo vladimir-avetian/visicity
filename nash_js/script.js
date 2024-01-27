@@ -19,7 +19,7 @@ $(document).ready(function() {
     //attribution: '© OpenStreetMap contributors, © CARTO'
     //}).addTo(map);
 
-    var imageUrl = 'img/paris2leaf.avif'; // URL to your georeferenced image
+    var imageUrl = 'img/dvf/paris2leaf.avif'; // URL to your georeferenced image
     var imageBounds = [[48.816277, 2.225594], [48.902098, 2.468296]]; // Bounds of the image in [lat, lng] format
 
     var rasterLayer = L.imageOverlay(imageUrl, imageBounds).addTo(map);
@@ -124,44 +124,44 @@ $(document).ready(function() {
     }
 
     var districtData = {
-        1: { parks: 50, rent: 70, price: 30, bakeries: 10, magict: "🌟 The Royal Heart of Paris! 🌟", bbox: [[48.8544964876219, 2.3219974007664], [48.8696563978365, 2.35071882846721]], imgurl: "img/dvf_colored_paris_buildings_arrond_1.avif"
+        1: { parks: 50, rent: 70, price: 30, bakeries: 10, magict: "🌟 The Royal Heart of Paris! 🌟", bbox: [[48.8544964876219, 2.3219974007664], [48.8696563978365, 2.35071882846721]], imgurl: "img/dvf/dvf_colored_paris_buildings_arrond_1.avif"
 },
-        2: { parks: 60, rent: 80, price: 20, bakeries: 40, magict: "🎭 The Bustling Bourse Beat! 🎭", bbox: [[48.8635410814225, 2.32838325561702], [48.8718117697119, 2.35402104119585]], imgurl: "img/dvf_colored_paris_buildings_arrond_2.avif"
+        2: { parks: 60, rent: 80, price: 20, bakeries: 40, magict: "🎭 The Bustling Bourse Beat! 🎭", bbox: [[48.8635410814225, 2.32838325561702], [48.8718117697119, 2.35402104119585]], imgurl: "img/dvf/dvf_colored_paris_buildings_arrond_2.avif"
 },
-        3: { parks: 70, rent: 90, price: 32, bakeries: 30, magict: "🎨 Marais' Artistic Soul! 🎨", bbox: [[48.8558369344858, 2.35039289268962], [48.8691953854574, 2.3682704694032]], imgurl: "img/dvf_colored_paris_buildings_arrond_3.avif"
+        3: { parks: 70, rent: 90, price: 32, bakeries: 30, magict: "🎨 Marais' Artistic Soul! 🎨", bbox: [[48.8558369344858, 2.35039289268962], [48.8691953854574, 2.3682704694032]], imgurl: "img/dvf/dvf_colored_paris_buildings_arrond_3.avif"
 },
-        4: { parks: 80, rent: 100, price: 42, bakeries: 40, magict: "🌉 Notre-Dame's Majestic Pride! 🌉", bbox: [[48.8471375303585, 2.3451376996171], [48.8618848545416, 2.36877965792309]], imgurl: "img/dvf_colored_paris_buildings_arrond_4.avif"
+        4: { parks: 80, rent: 100, price: 42, bakeries: 40, magict: "🌉 Notre-Dame's Majestic Pride! 🌉", bbox: [[48.8471375303585, 2.3451376996171], [48.8618848545416, 2.36877965792309]], imgurl: "img/dvf/dvf_colored_paris_buildings_arrond_4.avif"
 },
-        5: { parks: 90, rent: 0, price: 53, bakeries: 50, magict: "📚 The Latin Quarter's Intellectual Charm! 📚", bbox: [[48.8369481817177, 2.33691839013067], [48.853561082124, 2.36402681232919]], imgurl: "img/dvf_colored_paris_buildings_arrond_5.avif"
+        5: { parks: 90, rent: 0, price: 53, bakeries: 50, magict: "📚 The Latin Quarter's Intellectual Charm! 📚", bbox: [[48.8369481817177, 2.33691839013067], [48.853561082124, 2.36402681232919]], imgurl: "img/dvf/dvf_colored_paris_buildings_arrond_5.avif"
 },
-        6: { parks: 100, rent: 10, price: 34, bakeries: 20, magict: "🌺 Saint-Germain's Bohemian Bliss! 🌺", bbox: [[48.8400209590806, 2.31716829454667], [48.858154697874, 2.34384536857085]], imgurl: "img/dvf_colored_paris_buildings_arrond_6.avif"
+        6: { parks: 100, rent: 10, price: 34, bakeries: 20, magict: "🌺 Saint-Germain's Bohemian Bliss! 🌺", bbox: [[48.8400209590806, 2.31716829454667], [48.858154697874, 2.34384536857085]], imgurl: "img/dvf/dvf_colored_paris_buildings_arrond_6.avif"
 },
-        7: { parks: 0, rent: 20, price: 65, bakeries: 11, magict: "🏛️ Eiffel Tower's Iconic Splendor! 🏛️", bbox: [[48.8460848951103, 2.29136021461977], [48.8631997898029, 2.33312557731641]], imgurl: "img/dvf_colored_paris_buildings_arrond_7.avif"
+        7: { parks: 0, rent: 20, price: 65, bakeries: 11, magict: "🏛️ Eiffel Tower's Iconic Splendor! 🏛️", bbox: [[48.8460848951103, 2.29136021461977], [48.8631997898029, 2.33312557731641]], imgurl: "img/dvf/dvf_colored_paris_buildings_arrond_7.avif"
 },
-        8: { parks: 10, rent: 30, price: 12, bakeries: 3, magict: "🛍️ Chic Champs-Élysées Elegance! 🛍️", bbox: [[48.8642036512367, 2.29605565822841], [48.8831891287794, 2.32707842711394]], imgurl: "img/dvf_colored_paris_buildings_arrond_8.avif"
+        8: { parks: 10, rent: 30, price: 12, bakeries: 3, magict: "🛍️ Chic Champs-Élysées Elegance! 🛍️", bbox: [[48.8642036512367, 2.29605565822841], [48.8831891287794, 2.32707842711394]], imgurl: "img/dvf/dvf_colored_paris_buildings_arrond_8.avif"
 },
-        9: { parks: 20, rent: 40, price: 13, bakeries: 43, magict: "🎶 Opéra Garnier's Grandeur! 🎶", bbox: [[48.8698075985289, 2.32600061683716], [48.884304387551, 2.34976397200663]], imgurl: "img/dvf_colored_paris_buildings_arrond_9.avif"
+        9: { parks: 20, rent: 40, price: 13, bakeries: 43, magict: "🎶 Opéra Garnier's Grandeur! 🎶", bbox: [[48.8698075985289, 2.32600061683716], [48.884304387551, 2.34976397200663]], imgurl: "img/dvf/dvf_colored_paris_buildings_arrond_9.avif"
 },
-        10: { parks: 30, rent: 50, price: 14, bakeries: 23, magict: "🚂 Gare du Nord's Vibrant Gateway! 🚂", bbox: [[48.8678734068013, 2.34795855142418], [48.8843878195371, 2.3766447399718]], imgurl: "img/dvf_colored_paris_buildings_arrond_10.avif"
+        10: { parks: 30, rent: 50, price: 14, bakeries: 23, magict: "🚂 Gare du Nord's Vibrant Gateway! 🚂", bbox: [[48.8678734068013, 2.34795855142418], [48.8843878195371, 2.3766447399718]], imgurl: "img/dvf/dvf_colored_paris_buildings_arrond_10.avif"
 },
-        11: { parks: 40, rent: 60, price: 15, bakeries: 43, magict: "🍷 Bastille's Lively Nights! 🍷", bbox: [[48.8482761919547, 2.36471517161306], [48.8718229971207, 2.39894682157117]], imgurl: "img/dvf_colored_paris_buildings_arrond_11.avif"
+        11: { parks: 40, rent: 60, price: 15, bakeries: 43, magict: "🍷 Bastille's Lively Nights! 🍷", bbox: [[48.8482761919547, 2.36471517161306], [48.8718229971207, 2.39894682157117]], imgurl: "img/dvf/dvf_colored_paris_buildings_arrond_11.avif"
 },
-        12: { parks: 50, rent: 80, price: 26, bakeries: 53, magict: "🌳 Bercy Park's Green Serenity! 🌳", bbox: [[48.8175559998113, 2.36554860226397], [48.8530778848313, 2.46829613828093]], imgurl: "img/dvf_colored_paris_buildings_arrond_12.avif"
+        12: { parks: 50, rent: 80, price: 26, bakeries: 53, magict: "🌳 Bercy Park's Green Serenity! 🌳", bbox: [[48.8175559998113, 2.36554860226397], [48.8530778848313, 2.46829613828093]], imgurl: "img/dvf/dvf_colored_paris_buildings_arrond_12.avif"
 },
-        13: { parks: 60, rent: 70, price: 36, bakeries: 63, magict: "🌐 Chinatown's Cultural Fusion! 🌐", bbox: [[48.8162768164948, 2.3412563586433], [48.8436940144525, 2.38938276138559]], imgurl: "img/dvf_colored_paris_buildings_arrond_13.avif"
+        13: { parks: 60, rent: 70, price: 36, bakeries: 63, magict: "🌐 Chinatown's Cultural Fusion! 🌐", bbox: [[48.8162768164948, 2.3412563586433], [48.8436940144525, 2.38938276138559]], imgurl: "img/dvf/dvf_colored_paris_buildings_arrond_13.avif"
 },
-        14: { parks: 70, rent: 60, price: 56, bakeries: 23, magict: "🌄 Montparnasse's Artistic Heights! 🌄", bbox: [[48.8167782533203, 2.30192066307136], [48.8434571094714, 2.34426171096733]], imgurl: "img/dvf_colored_paris_buildings_arrond_14.avif"
+        14: { parks: 70, rent: 60, price: 56, bakeries: 23, magict: "🌄 Montparnasse's Artistic Heights! 🌄", bbox: [[48.8167782533203, 2.30192066307136], [48.8434571094714, 2.34426171096733]], imgurl: "img/dvf/dvf_colored_paris_buildings_arrond_14.avif"
 },
-        15: { parks: 80, rent: 50, price: 45, bakeries: 15, magict: "🌌 Modernity Meets Tradition! 🌌", bbox: [[48.8258424153462, 2.26532658803363], [48.8562355876219, 2.32390692488045]], imgurl: "img/dvf_colored_paris_buildings_arrond_15.avif"
+        15: { parks: 80, rent: 50, price: 45, bakeries: 15, magict: "🌌 Modernity Meets Tradition! 🌌", bbox: [[48.8258424153462, 2.26532658803363], [48.8562355876219, 2.32390692488045]], imgurl: "img/dvf/dvf_colored_paris_buildings_arrond_15.avif"
 },
-        16: { parks: 90, rent: 40, price: 55, bakeries: 12, magict: "🏞️ Passy's Prestigious Calm! 🏞️", bbox: [[48.8341194315702, 2.22559377661025], [48.8802784056235, 2.30077566872987]], imgurl: "img/dvf_colored_paris_buildings_arrond_16.avif"
+        16: { parks: 90, rent: 40, price: 55, bakeries: 12, magict: "🏞️ Passy's Prestigious Calm! 🏞️", bbox: [[48.8341194315702, 2.22559377661025], [48.8802784056235, 2.30077566872987]], imgurl: "img/dvf/dvf_colored_paris_buildings_arrond_16.avif"
 },
-        17: { parks: 10, rent: 30, price: 44, bakeries: 10, magict: "🏰 Batignolles' Hidden Gem! 🏰", bbox: [[48.8745841907157, 2.28055672181358], [48.9002820338506, 2.32962668030668]], imgurl: "img/dvf_colored_paris_buildings_arrond_17.avif"
+        17: { parks: 10, rent: 30, price: 44, bakeries: 10, magict: "🏰 Batignolles' Hidden Gem! 🏰", bbox: [[48.8745841907157, 2.28055672181358], [48.9002820338506, 2.32962668030668]], imgurl: "img/dvf/dvf_colored_paris_buildings_arrond_17.avif"
 },
-        18: { parks: 20, rent: 15, price: 33, bakeries: 4, magict: "🎨 Montmartre's Bohemian Rhapsody! 🎨", bbox: [[48.8822328474197, 2.32574886157473], [48.9017426626005, 2.3707653806439]], imgurl: "img/dvf_colored_paris_buildings_arrond_18.avif"
+        18: { parks: 20, rent: 15, price: 33, bakeries: 4, magict: "🎨 Montmartre's Bohemian Rhapsody! 🎨", bbox: [[48.8822328474197, 2.32574886157473], [48.9017426626005, 2.3707653806439]], imgurl: "img/dvf/dvf_colored_paris_buildings_arrond_18.avif"
 },
-        19: { parks: 30, rent: 12, price: 11, bakeries: 2, magict: "🎡 La Villette's Innovative Spirit! 🎡", bbox: [[48.8724397585582, 2.36498488923525], [48.9020979989263, 2.41042774544742]], imgurl: "img/dvf_colored_paris_buildings_arrond_19.avif"},
-        20: { parks: 40, rent: 11, price: 20, bakeries: 45, magict: "🎉 Belleville's Multicultural Mosaic! 🎉", bbox: [[48.8467647696628, 2.37729324745446], [48.8782196376912, 2.41588302161785]], imgurl: "img/dvf_colored_paris_buildings_arrond_20.avif"}
+        19: { parks: 30, rent: 12, price: 11, bakeries: 2, magict: "🎡 La Villette's Innovative Spirit! 🎡", bbox: [[48.8724397585582, 2.36498488923525], [48.9020979989263, 2.41042774544742]], imgurl: "img/dvf/dvf_colored_paris_buildings_arrond_19.avif"},
+        20: { parks: 40, rent: 11, price: 20, bakeries: 45, magict: "🎉 Belleville's Multicultural Mosaic! 🎉", bbox: [[48.8467647696628, 2.37729324745446], [48.8782196376912, 2.41588302161785]], imgurl: "img/dvf/dvf_colored_paris_buildings_arrond_20.avif"}
     };
 
 
