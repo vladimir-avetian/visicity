@@ -226,7 +226,6 @@ $(document).ready(function() {
             map.boxZoom.enable();
             map.keyboard.enable();
             map.dragging.enable();
-            flag_zoom_regiment = 1;
         }
     }
 
@@ -246,33 +245,31 @@ $(document).ready(function() {
     }).addTo(map);
 
     function AirbnbFunction() {
-        if (flag_zoom_regiment == 0) {
-            if (map.hasLayer(rasterLayer)) {
-                map.removeLayer(rasterLayer);
-                rasterLayer = L.imageOverlay(imageUrlAirbnb, imageBounds).addTo(map);
-                flag_map_type_regiment = 2;
-            }
-        }
-        if (flag_zoom_regiment == 1) {
-            var ArrData = districtData[arrondissement]
-            var centroid = e.target.getBounds().getCenter();
-            map.setView(centroid, 14);
-            map.removeLayer(rasterLayer);
-            if (flag_map_type_regiment == 1) {
-                rasterLayer = L.imageOverlay(ArrData.imgurl, ArrData.bbox).addTo(map);
-            }
-            if (flag_map_type_regiment == 2) {
-                rasterLayer = L.imageOverlay('img/airbnb/airbnb_colored_paris_buildings_arrond_' + arrondissement + '.avif', ArrData.bbox).addTo(map);
-            }
-        }
+        map.scrollWheelZoom.disable();
+        map.doubleClickZoom.disable();
+        map.touchZoom.disable();
+        map.boxZoom.disable();
+        map.keyboard.disable();
+        map.dragging.disable();
+
+        map.setView([48.858, 2.345], 12);
+        map.removeLayer(rasterLayer);
+        rasterLayer = L.imageOverlay(imageUrlAirbnb, imageBounds).addTo(map);
+        flag_map_type_regiment = 2;
     }
 
     function PriceFunction() {
-        if (map.hasLayer(rasterLayer)) {
-            map.removeLayer(rasterLayer);
-            rasterLayer = L.imageOverlay(imageUrl, imageBounds).addTo(map);
-            flag_map_type_regiment = 1;
-        }
+        map.scrollWheelZoom.disable();
+        map.doubleClickZoom.disable();
+        map.touchZoom.disable();
+        map.boxZoom.disable();
+        map.keyboard.disable();
+        map.dragging.disable();
+
+        map.setView([48.858, 2.345], 12);
+        map.removeLayer(rasterLayer);
+        rasterLayer = L.imageOverlay(imageUrl, imageBounds).addTo(map);
+        flag_map_type_regiment = 1;
     }
 
     // Add click event listener to the Airbnb button
