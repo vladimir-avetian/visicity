@@ -26,8 +26,9 @@ $(document).ready(function() {
 
     var rasterLayer = L.imageOverlay(imageUrl, imageBounds).addTo(map);
 
-    var flag_zoom_regiment = 0
-    var flag_map_type_regiment = 1 // it is a variable that switches between 1, 2, 3 and 4 for each type of map: price, airbnb, parks, bakeries
+    var flag_zoom_regiment = 0;
+    var flag_map_type_regiment = 1; // it is a variable that switches between 1, 2, 3 and 4 for each type of map: price, airbnb, parks, bakeries
+    var arrondissement = 0;
 
     var previousZoomLevel = map.getZoom(); // Initialize with the current zoom level
 
@@ -58,6 +59,7 @@ $(document).ready(function() {
             setTimeout(function() {
                 map.setView([48.858, 2.345], 12);
             }, 1000);
+            flag_zoom_regiment = 0;
         }
         previousZoomLevel = currentZoomLevel;
 
@@ -81,6 +83,7 @@ $(document).ready(function() {
             setTimeout(function() {
                 map.setView([48.858, 2.345], 12);
             }, 1000);
+            flag_zoom_regiment = 0;
         }
 
     })
@@ -105,7 +108,7 @@ $(document).ready(function() {
             dashArray: '',
             fillOpacity: 0
         });
-        var arrondissement = layer.feature.properties.c_ar; 
+        arrondissement = layer.feature.properties.c_ar; 
         $('#overlay-text').text("Names of places: " + arrondissement + " Arrondissement");
 
         if (districtData[arrondissement]) {
@@ -180,7 +183,7 @@ $(document).ready(function() {
 
     function onFeatureClick(e) {
         var layer = e.target;
-        var arrondissement = layer.feature.properties.c_ar; 
+        arrondissement = layer.feature.properties.c_ar; 
         $('#overlay-text').text("Names of places: " + arrondissement + " Arrondissement");
 
         if (districtData[arrondissement]) {
@@ -223,6 +226,7 @@ $(document).ready(function() {
             map.boxZoom.enable();
             map.keyboard.enable();
             map.dragging.enable();
+            flag_zoom_regiment = 1;
         }
     }
 
@@ -242,10 +246,24 @@ $(document).ready(function() {
     }).addTo(map);
 
     function AirbnbFunction() {
-        if (map.hasLayer(rasterLayer)) {
+        if (flag_zoom_regiment == 0) {
+            if (map.hasLayer(rasterLayer)) {
+                map.removeLayer(rasterLayer);
+                rasterLayer = L.imageOverlay(imageUrlAirbnb, imageBounds).addTo(map);
+                flag_map_type_regiment = 2;
+            }
+        }
+        if (flag_zoom_regiment == 1) {
+            var ArrData = districtData[arrondissement]
+            var centroid = e.target.getBounds().getCenter();
+            map.setView(centroid, 14);
             map.removeLayer(rasterLayer);
-            rasterLayer = L.imageOverlay(imageUrlAirbnb, imageBounds).addTo(map);
-            flag_map_type_regiment = 2;
+            if (flag_map_type_regiment == 1) {
+                rasterLayer = L.imageOverlay(ArrData.imgurl, ArrData.bbox).addTo(map);
+            }
+            if (flag_map_type_regiment == 2) {
+                rasterLayer = L.imageOverlay('img/airbnb/airbnb_colored_paris_buildings_arrond_' + arrondissement + '.avif', ArrData.bbox).addTo(map);
+            }
         }
     }
 
