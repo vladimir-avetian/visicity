@@ -20,6 +20,8 @@ $(document).ready(function() {
     //}).addTo(map);
 
     var imageUrl = 'img/dvf/paris2leaf.avif'; // URL to your georeferenced image
+    var imageUrlAirbnb = 'img/airbnb/paris_airbnb_price_categories.avif'; 
+
     var imageBounds = [[48.816277, 2.225594], [48.902098, 2.468296]]; // Bounds of the image in [lat, lng] format
 
     var rasterLayer = L.imageOverlay(imageUrl, imageBounds).addTo(map);
@@ -222,6 +224,17 @@ $(document).ready(function() {
         style: style,
         onEachFeature: onEachFeature
     }).addTo(map);
+
+    function AirbnbFunction() {
+        if (map.hasLayer(rasterLayer)) {
+            map.removeLayer(rasterLayer);
+            var rasterLayer = L.imageOverlay(imageUrlAirbnb, imageBounds).addTo(map);
+        }
+    }
+
+    // Add click event listener to the Airbnb button
+    $('#airbnbButton').on('click', AirbnbFunction);
+
 });
 
 
