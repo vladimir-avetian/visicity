@@ -27,6 +27,7 @@ $(document).ready(function() {
     var rasterLayer = L.imageOverlay(imageUrl, imageBounds).addTo(map);
 
     var flag_zoom_regiment = 0
+    var flag_map_type_regiment = 1 // it is a variable that switches between 1, 2, 3 and 4 for each type of map: price, airbnb, parks, bakeries
 
     var previousZoomLevel = map.getZoom(); // Initialize with the current zoom level
 
@@ -48,7 +49,12 @@ $(document).ready(function() {
 
             map.setView([48.858, 2.345], 12);
             map.removeLayer(rasterLayer);
-            rasterLayer = L.imageOverlay(imageUrl, imageBounds).addTo(map);
+            if (flag_map_type_regiment == 1) {
+                rasterLayer = L.imageOverlay(imageUrl, imageBounds).addTo(map);
+            }
+            if (flag_map_type_regiment == 2) {
+                rasterLayer = L.imageOverlay(imageUrlAirbnb, imageBounds).addTo(map);
+            }
             setTimeout(function() {
                 map.setView([48.858, 2.345], 12);
             }, 1000);
@@ -66,7 +72,12 @@ $(document).ready(function() {
 
             map.setView([48.858, 2.345], 12);
             map.removeLayer(rasterLayer);
-            rasterLayer = L.imageOverlay(imageUrl, imageBounds).addTo(map);
+            if (flag_map_type_regiment == 1) {
+                rasterLayer = L.imageOverlay(imageUrl, imageBounds).addTo(map);
+            }
+            if (flag_map_type_regiment == 2) {
+                rasterLayer = L.imageOverlay(imageUrlAirbnb, imageBounds).addTo(map);
+            }
             setTimeout(function() {
                 map.setView([48.858, 2.345], 12);
             }, 1000);
@@ -197,7 +208,12 @@ $(document).ready(function() {
             var centroid = e.target.getBounds().getCenter();
             map.setView(centroid, 14);
             map.removeLayer(rasterLayer);
-            rasterLayer = L.imageOverlay(ArrData.imgurl, ArrData.bbox).addTo(map);
+            if (flag_map_type_regiment == 1) {
+                rasterLayer = L.imageOverlay(ArrData.imgurl, ArrData.bbox).addTo(map);
+            }
+            if (flag_map_type_regiment == 2) {
+                rasterLayer = L.imageOverlay('img/airbnb/airbnb_colored_paris_buildings_arrond_' + arrondissement + '.avif', ArrData.bbox).addTo(map);
+            }
             
             // Change of zoom regiment
             flag_zoom_regiment = 1
@@ -229,11 +245,21 @@ $(document).ready(function() {
         if (map.hasLayer(rasterLayer)) {
             map.removeLayer(rasterLayer);
             rasterLayer = L.imageOverlay(imageUrlAirbnb, imageBounds).addTo(map);
+            flag_map_type_regiment = 2;
+        }
+    }
+
+    function PriceFunction() {
+        if (map.hasLayer(rasterLayer)) {
+            map.removeLayer(rasterLayer);
+            rasterLayer = L.imageOverlay(imageUrl, imageBounds).addTo(map);
+            flag_map_type_regiment = 1;
         }
     }
 
     // Add click event listener to the Airbnb button
     $('#airbnbButton').on('click', AirbnbFunction);
+    $('#priceButton').on('click', PriceFunction);
 
 });
 
