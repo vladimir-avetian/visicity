@@ -106,7 +106,7 @@ $(document).ready(function() {
         };
     }
 
-    // Function to highlight feature on mouseover and click
+    // Function to highlight feature on mouseover 
     function highlightFeature(e) {
         var layer = e.target;
         layer.setStyle({
