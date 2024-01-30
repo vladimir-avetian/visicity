@@ -21,6 +21,7 @@ $(document).ready(function() {
 
     var imageUrl = 'img/dvf/paris2leaf.avif'; // URL to your georeferenced image
     var imageUrlAirbnb = 'img/airbnb/paris_airbnb_price_categories.avif'; 
+    var imageUrlGreen = 'img/green/paris_green_shades.avif'; 
 
     var imageBounds = [[48.816277, 2.225594], [48.902098, 2.468296]]; // Bounds of the image in [lat, lng] format
 
@@ -56,6 +57,9 @@ $(document).ready(function() {
             if (flag_map_type_regiment == 2) {
                 rasterLayer = L.imageOverlay(imageUrlAirbnb, imageBounds).addTo(map);
             }
+            if (flag_map_type_regiment == 3) {
+                rasterLayer = L.imageOverlay(imageUrlGreen, imageBounds).addTo(map);
+            }
             setTimeout(function() {
                 map.setView([48.858, 2.345], 12);
             }, 1000);
@@ -79,6 +83,9 @@ $(document).ready(function() {
             }
             if (flag_map_type_regiment == 2) {
                 rasterLayer = L.imageOverlay(imageUrlAirbnb, imageBounds).addTo(map);
+            }
+            if (flag_map_type_regiment == 3) {
+                rasterLayer = L.imageOverlay(imageUrlGreen, imageBounds).addTo(map);
             }
             setTimeout(function() {
                 map.setView([48.858, 2.345], 12);
@@ -217,6 +224,9 @@ $(document).ready(function() {
             if (flag_map_type_regiment == 2) {
                 rasterLayer = L.imageOverlay('img/airbnb/airbnb_colored_paris_buildings_arrond_' + arrondissement + '.avif', ArrData.bbox).addTo(map);
             }
+            if (flag_map_type_regiment == 3) {
+                rasterLayer = L.imageOverlay('img/green/buildings_trees_arrond_' + arrondissement + '.avif', ArrData.bbox).addTo(map);
+            }
             
             // Change of zoom regiment
             flag_zoom_regiment = 1
@@ -272,10 +282,24 @@ $(document).ready(function() {
         flag_map_type_regiment = 1;
     }
 
+    function GreenFunction() {
+        map.scrollWheelZoom.disable();
+        map.doubleClickZoom.disable();
+        map.touchZoom.disable();
+        map.boxZoom.disable();
+        map.keyboard.disable();
+        map.dragging.disable();
+
+        map.setView([48.858, 2.345], 12);
+        map.removeLayer(rasterLayer);
+        rasterLayer = L.imageOverlay(imageUrlGreen, imageBounds).addTo(map);
+        flag_map_type_regiment = 3;
+    }
+
     // Add click event listener to the Airbnb button
     $('#airbnbButton').on('click', AirbnbFunction);
     $('#priceButton').on('click', PriceFunction);
-
+    $('#greenButton').on('click', GreenFunction);
 });
 
 
