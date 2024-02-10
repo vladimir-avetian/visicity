@@ -300,6 +300,7 @@ $(document).ready(function() {
     $('#airbnbButton').on('click', AirbnbFunction);
     $('#priceButton').on('click', PriceFunction);
     $('#greenButton').on('click', GreenFunction);
+    $('[data-toggle="tooltip"]').tooltip(); // Initializes all tooltips
 });
 
 
